@@ -46,7 +46,7 @@ def decorador_imprimir(func):
         return resultado
     return calcu_juros
 
-@decorador_imprimir
+@decorador_imprimir:
 def juros_simples (capital, taxa, tempo):
     # função que calcula juros simples.
     
