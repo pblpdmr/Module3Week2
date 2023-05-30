@@ -20,38 +20,38 @@ função parecida com a juros_simples (isto é, uma função que receba 3 parâm
 seja retornado um valor numérico correspondente ao juros.
 """
 
-def decorador_imprimir(func):
-    # Decorador que imprime os resultados de juros de uma função original.
+    def decorador_imprimir(func):
+        # Decorador que imprime os resultados de juros de uma função original.
 
-    def calcu_juros(*args, **kwargs):
-        # Função interna que recebe e imprime os valores da função original.
+        def calcu_juros(*args, **kwargs):
+            # Função interna que recebe e imprime os valores da função original.
         
-        # Salvando os valores dos parámetros da função original na variavél args.  
-        capital, taxa, tempo = args
+            # Salvando os valores dos parámetros da função original na variavél args.  
+            capital, taxa, tempo = args
     
-        """
-        É possível também salvar os dados com iteação por lista:
+            """
+            É possível também salvar os dados com iteação por lista:
         
-        capital = args[0]
-        taxa = args [1]
-        tempo = args [0]
-        """ 
+            capital = args[0]
+            taxa = args [1]
+            tempo = args [0]
+            """ 
         
-        # Levando a variavel para se exceutada pelo decorador na variavél resultado.
-        resultado = func(*args, **kwargs)
+            # Levando a variavel para se exceutada pelo decorador na variavél resultado.
+            resultado = func(*args, **kwargs)
 
-        # Responsável de imprimir os valores dos parámetros.
-        print("CAPITAL: ", capital, "TAXA: ", taxa , "TEMPO: ", tempo, "RESULTADO: ", resultado)
+            # Responsável de imprimir os valores dos parámetros.
+            print("CAPITAL: ", capital, "TAXA: ", taxa , "TEMPO: ", tempo, "RESULTADO: ", resultado)
         
+            return resultado
+        return calcu_juros
+    
+        @decorador_imprimir:
+        def juros_simples (capital, taxa, tempo):
+        # função que calcula juros simples.
+    
+        # Instanciamos a operação a realizar:
+        resultado = capital* (taxa/100) * tempo
         return resultado
-    return calcu_juros
 
-@decorador_imprimir:
-def juros_simples (capital, taxa, tempo):
-    # função que calcula juros simples.
-    
-    # Instanciamos a operação a realizar:
-    resultado = capital* (taxa/100) * tempo
-    return resultado
-
-juros_simples (1000,5,6)
+    juros_simples (1000,5,6)
